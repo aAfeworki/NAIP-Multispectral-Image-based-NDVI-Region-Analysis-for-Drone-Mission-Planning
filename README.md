@@ -49,7 +49,7 @@ This defines the NDVI analysis boundary.
 3️⃣ NDVI Computation
 Click the "Run NDVI analysis" button
 NDVI is computed using N and R
-NDVI is clipped to ROI
+NDVI is clipped to the ROI
 Visualization includes:
 True color NAIP image
 NDVI color palette
@@ -105,14 +105,14 @@ The KML will be saved to Google Drive.
 Satellite NDVI screening
 Identify vegetation stress clusters
 Export inspection polygons
-Upload to drone mission planner
+Upload to the drone mission planner
 Conduct focused UAV scouting
 Apply localized treatment
 This approach can reduce:
 Flight time by more than 80%
 Battery cycles
 Field scouting labor
-Fuel / energy consumption
+Fuel/energy consumption
 
 
 🤝 Contribution
