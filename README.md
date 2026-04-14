@@ -1,5 +1,5 @@
 This project provides a Google Earth Engine (GEE) workflow for:
-Performing NDVI (Normalized Difference Vegetation Index) analysis using Sentinel-2 imagery
+Performing NDVI (Normalized Difference Vegetation Index) analysis using NAIP imagery
 Selecting a region of interest (ROI) for vegetation analysis
 Identifying and marking sub-regions requiring drone inspection
 Exporting those sub-regions as KML files for mission planning
@@ -24,15 +24,13 @@ Upload them into drone mission software (e.g., DJI, QGroundControl)
 The drone then flies only where needed.
 
 🛰️ Data Source
-Sentinel-2 Surface Reflectance (Harmonized)
-Dataset: COPERNICUS/S2_SR_HARMONIZED
-Resolution: 10 meters
+NAIP Surface Imagery
+Resolution: 0.6 - 1.0 meters
 Bands used:
-B4 → Red
-B8 → Near Infrared (NIR)
-Cloud masking: Scene Classification Layer (SCL)
+R → Red
+N → Near Infrared (NIR)
 NDVI formula:
-NDVI = (B8 - B4)/(B8 + B4)
+NDVI = (N - R)/(N + R)
 
 🧠 How the Code Works
 The workflow is divided into clear stages:
@@ -41,36 +39,23 @@ The workflow is divided into clear stages:
 You specify:
 Start date
 End date
-Maximum cloud percentage
-The system filters Sentinel-2 imagery accordingly.
+Run the Script
 
 2️⃣ Draw Region of Interest (ROI)
-Before running the script:
 Draw a single polygon or rectangle
-Rename it as geometry
 This defines the NDVI analysis boundary.
 ![image alt](https://github.com/aAfeworki/Sentinel-2-Multispectral-Image-based-NDVI-Region-Analysis-for-Drone-Mission-Planning/blob/main/ROI%20Selection.png?raw=true)
 
-3️⃣ Cloud Masking
-Clouds are removed using Sentinel-2’s SCL (Scene Classification Layer).
-Masked classes:
-Cloud shadows
-Medium/high probability clouds
-Cirrus
-Snow
-This ensures accurate NDVI computation.
-
-4️⃣ NDVI Computation
-After filtering and masking:
-A median composite is created
-NDVI is computed using B8 and B4
+3️⃣ NDVI Computation
+Click the "Run NDVI analysis" button
+NDVI is computed using N and R
 NDVI is clipped to ROI
 Visualization includes:
-True color Sentinel-2 image
+True color NAIP image
 NDVI color palette
 ![image alt](https://github.com/aAfeworki/Sentinel-2-Multispectral-Image-based-NDVI-Region-Analysis-for-Drone-Mission-Planning/blob/main/NDVI%20analysis%20and%20Visualization%20inside%20ROI.png?raw=true)
 
-5️⃣ Mark Drone Inspection Zones
+4️⃣ Mark Drone Inspection Zones
 After NDVI appears:
 Draw one or more polygons
 These represent areas requiring drone inspection
@@ -81,7 +66,8 @@ Irrigation anomalies
 Pest suspicion zones
 ![image alt](https://github.com/aAfeworki/Sentinel-2-Multispectral-Image-based-NDVI-Region-Analysis-for-Drone-Mission-Planning/blob/main/Drone%20Mission%20Planning%20Polygons%20are%20exported%20as%20KML.png?raw=true)
 
-6️⃣ Export KML for Drone Software
+5️⃣ Export KML for Drone Software
+Click the "Export Digitized Polygon" button
 Export format:
 KML
 
@@ -92,10 +78,10 @@ Go to:
 https://code.earthengine.google.com/
 
 Step 2 — Paste the Script
-Copy sentinel2_ndvi_script.js into a new script file.
+Copy NAIP_ndvi_script.js into a new script file.
 
 Step 3 — Draw ROI
-Use polygon or rectangle tool
+Use the polygon or rectangle tool
 Rename geometry as geometry
 
 Step 4 — Press Run
