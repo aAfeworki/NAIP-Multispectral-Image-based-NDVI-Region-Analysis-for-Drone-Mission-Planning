@@ -44,7 +44,7 @@ Run the Script
 2️⃣ Draw Region of Interest (ROI)
 Draw a single polygon or rectangle
 This defines the NDVI analysis boundary.
-![image alt](https://github.com/aAfeworki/Sentinel-2-Multispectral-Image-based-NDVI-Region-Analysis-for-Drone-Mission-Planning/blob/main/ROI%20Selection.png?raw=true)
+![image alt](https://github.com/aAfeworki/NAIP-Multispectral-Image-based-NDVI-Region-Analysis-for-Drone-Mission-Planning/blob/45556594b2a506d4d7db0ebf8b2f30bdf57e6877/ROI%20Selection%20for%20NDVI%20analysis.png)
 
 3️⃣ NDVI Computation
 Click the "Run NDVI analysis" button
